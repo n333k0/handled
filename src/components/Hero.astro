@@ -1,0 +1,65 @@
+---
+import { url } from '../lib/url';
+import ParentLogo from './ParentLogo.astro';
+import { brand, spotsOpen, capacity } from '../data/site';
+
+// Visual reel. Videos from the MoP offer (Higgsfield); replace with our own as they're made.
+const tiles = [
+  { src: '/media/v2.mp4', poster: '/media/v2.jpg', w: 'w-[230px] sm:w-[300px]', h: 'h-[300px] sm:h-[400px]' },
+  { src: '/media/v1.mp4', poster: '/media/v1.jpg', w: 'w-[380px] sm:w-[520px]', h: 'h-[214px] sm:h-[292px]' },
+  { src: '/media/v3.mp4', poster: '/media/v3.jpg', w: 'w-[280px] sm:w-[360px]', h: 'h-[280px] sm:h-[360px]' },
+];
+const loop = [...tiles, ...tiles, ...tiles, ...tiles];
+---
+
+<section class="relative overflow-hidden pt-[88px] sm:pt-[116px]">
+  <div class="wrap relative text-center">
+    <a href={url('/#book')} class="chip mx-auto border-white/15 bg-white/5 text-paper/80 hover:border-spark/60">
+      <span class="dot"></span>
+      {spotsOpen} of {capacity.total} build slots open this month
+    </a>
+
+    <h1 class="display mx-auto mt-8 max-w-[15ch] t-hero">
+      Your busywork. <span class="accent text-spark">Handled.</span>
+    </h1>
+
+    <p class="mx-auto mt-7 max-w-[640px] text-[18px] leading-relaxed text-paper/75 sm:text-[20px]">
+      Manual work quietly drains revenue you can’t see. We audit how your business runs, then install AI systems that do the work, inside the tools you already use.
+    </p>
+
+    <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <a href={url('/#book')} data-call class="btn-primary h-14 px-8 text-[16px]">
+        Book a free 30-min call
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" /></svg>
+      </a>
+      <a href={url('/#leak')} class="btn-ghost h-14 px-8 text-[16px]">Calculate your leak</a>
+    </div>
+
+    <ul class="label mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-paper/50">
+      <li>Audit first</li>
+      <li aria-hidden="true">/</li>
+      <li>Live in 3–4 weeks</li>
+      <li aria-hidden="true">/</li>
+      <li>Works with your stack</li>
+      <li aria-hidden="true">/</li>
+      <li>Model-agnostic</li>
+    </ul>
+
+    <a href={brand.parentUrl} class="mt-7 inline-flex items-center gap-2 text-white/90 transition hover:text-white" aria-label={`${brand.parentLine} ${brand.parent}`}>
+      <span class="font-sans text-[14px] leading-none text-paper/55">{brand.parentLine}</span>
+      <ParentLogo class="h-[14px]" />
+    </a>
+  </div>
+
+  <div class="relative mt-16 sm:mt-20" aria-hidden="true">
+    <div class="flex w-max items-end gap-4 animate-marquee hover:[animation-play-state:paused]">
+      {loop.map((t, i) => (
+        <div class:list={['shrink-0 overflow-hidden rounded-[22px] bg-pine-800', t.w, t.h]}>
+          <video class="size-full object-cover" src={url(t.src)} poster={url(t.poster)} autoplay muted loop playsinline preload={i < 3 ? 'auto' : 'none'}></video>
+        </div>
+      ))}
+    </div>
+    <div class="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-pine-900 sm:w-40"></div>
+    <div class="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-pine-900 sm:w-40"></div>
+  </div>
+</section>
