@@ -59,10 +59,10 @@ export const steps = [
 ];
 
 export const os = [
-  { area: 'Sales', agents: ['Lead scoring', 'Proposal writer', 'Deal follow-up'] },
-  { area: 'Marketing', agents: ['Content engine', 'Social scheduler', 'Campaign reports'] },
-  { area: 'Finance', agents: ['Invoice chasing', 'Expense tracking', 'Reconciliation'] },
-  { area: 'Operations', agents: ['Support triage', 'Doc processing', 'Status updates'] },
+  { area: 'Sales', agents: ['Lead scoring', 'Inbound qualification', 'Proposal writer', 'Deal follow-up', 'CRM hygiene', 'Call notes & next steps'] },
+  { area: 'Marketing', agents: ['Content engine', 'Social scheduler', 'Newsletter drafts', 'SEO briefs', 'Ad variations', 'Campaign reports'] },
+  { area: 'Finance', agents: ['Invoice chasing', 'Expense tracking', 'Reconciliation', 'Cash-flow forecast', 'Payroll prep', 'Monthly close pack'] },
+  { area: 'Operations', agents: ['Support triage', 'Doc processing', 'Onboarding checklists', 'Scheduling', 'Vendor follow-ups', 'Status updates'] },
 ];
 
 export const agents = [
