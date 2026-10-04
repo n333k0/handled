@@ -5,7 +5,7 @@ export const brand = {
   parent: 'RemotoLabs', // logo: public/brand/remotolabs.png
   parentUrl: '#', // TODO: RemotoLabs website URL
   parentLine: 'AI systems by',
-  theme: 'void' as 'void' | 'black' | 'green', // style: void = Void (default), black = Graphite, green = Pine
+  theme: 'pitch' as 'pitch' | 'void' | 'black' | 'green', // style: pitch = Pitch (default), void = Void, black = Graphite, green = Pine
   email: 'hello@handled.studio', // TODO: real inbox
 };
 

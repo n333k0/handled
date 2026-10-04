@@ -28,7 +28,7 @@ const {
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta name="theme-color" content={brand.theme === 'green' ? '#0a211f' : brand.theme === 'black' ? '#0d0d0d' : '#050505'} />
+    <meta name="theme-color" content={brand.theme === 'green' ? '#0a211f' : brand.theme === 'black' ? '#0d0d0d' : brand.theme === 'pitch' ? '#000000' : '#050505'} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -46,7 +46,7 @@ const {
       // ?theme=void|black|green previews a style; it sticks for the browser session.
       try {
         const t = new URLSearchParams(location.search).get('theme') || sessionStorage.getItem('theme');
-        if (t === 'green' || t === 'black' || t === 'void') {
+        if (t === 'green' || t === 'black' || t === 'void' || t === 'pitch') {
           document.documentElement.dataset.theme = t;
           sessionStorage.setItem('theme', t);
         }
@@ -76,7 +76,7 @@ const {
       // Header turns into the floating pill after a little scroll.
       const header = document.querySelector<HTMLElement>('.site-header');
       const mobile = matchMedia('(max-width: 767px)');
-      const onScroll = () => header?.toggleAttribute('data-scrolled', mobile.matches || scrollY > 24);
+      const onScroll = () => header?.toggleAttribute('data-scrolled', true) // handled: always the floating pill;
       mobile.addEventListener('change', onScroll);
       addEventListener('scroll', onScroll, { passive: true });
       onScroll();

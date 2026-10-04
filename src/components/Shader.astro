@@ -7,14 +7,18 @@ const { class: className = '' } = Astro.props;
 
 <div class:list={['shader pointer-events-none', className]} aria-hidden="true">
   <div class="mount absolute inset-0"></div>
-  <div class="veil absolute inset-0"></div>
 </div>
 
 <style>
-  .shader { background: radial-gradient(60% 50% at 50% 30%, rgb(91 60 255 / .25), transparent 70%); }
-  .shader .mount { mask-image: linear-gradient(to bottom, #000 50%, transparent); -webkit-mask-image: linear-gradient(to bottom, #000 50%, transparent); }
-  /* keep the copy readable: darker in the middle where the headline sits */
-  .shader .veil { background: radial-gradient(42% 38% at 50% 42%, rgb(0 0 0 / .72), transparent 100%); }
+  /* Frames the copy instead of sitting behind it: the centre is masked out, edges glow,
+     and it fades out at the bottom of the hero. */
+  .shader .mount {
+    opacity: 1;
+    -webkit-mask-image: radial-gradient(ellipse 52% 46% at 50% 50%, transparent 58%, #000 100%), linear-gradient(to bottom, #000 70%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image: radial-gradient(ellipse 52% 46% at 50% 50%, transparent 58%, #000 100%), linear-gradient(to bottom, #000 70%, transparent);
+    mask-composite: intersect;
+  }
 </style>
 
 <script>
@@ -26,13 +30,13 @@ const { class: className = '' } = Astro.props;
     let mount: ShaderMount;
     try {
       mount = new ShaderMount(el, neuroNoiseFragmentShader, {
-        u_colorFront: getShaderColorFromString('#c8d2ff'),
-        u_colorMid: getShaderColorFromString('#5b3cff'),
-        u_colorBack: getShaderColorFromString('#00000000'),
-        u_brightness: 0.06,
-        u_contrast: 0.35,
+        u_colorFront: getShaderColorFromString('#a9b5ff'),
+        u_colorMid: getShaderColorFromString('#4b34e6'),
+        u_colorBack: getShaderColorFromString('#000000'),
+        u_brightness: 0.16,
+        u_contrast: 0.75,
         u_fit: ShaderFitOptions.none,
-        u_scale: 0.9,
+        u_scale: 1.8,
         u_rotation: 0,
         u_offsetX: 0,
         u_offsetY: 0,
@@ -40,7 +44,7 @@ const { class: className = '' } = Astro.props;
         u_originY: 0.5,
         u_worldWidth: 0,
         u_worldHeight: 0,
-      }, undefined, still ? 0 : 0.6, 40, 1, 1920 * 1080);
+      }, undefined, still ? 0 : 0.4, 40, 1, 1920 * 1080);
     } catch { continue; }
     if (still) continue;
 
