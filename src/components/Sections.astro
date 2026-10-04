@@ -59,14 +59,19 @@ import { pains, steps, os, agents, stack, packages, deliverables, links, family 
         <p class="label text-ink/60">Orchestrator</p>
         <p class="mt-1 text-[22px] font-semibold tracking-tight">Your AI chief of staff</p>
       </div>
-      <div class="mx-auto h-8 w-px bg-white/20"></div>
-      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {os.map((o) => (
-          <div class="rounded-[24px] bg-pine-800 p-5">
-            <p class="label text-spark">{o.area}</p>
-            <ul class="mt-4 space-y-2 text-[14px]">
-              {o.agents.map((a) => <li class="flex items-center gap-2 text-paper/80"><span class="dot"></span>{a}</li>)}
-            </ul>
+      <!-- tree: one trunk from the orchestrator, a branch to every area -->
+      <div class="mx-auto h-6 w-px bg-white/25 lg:h-8"></div>
+      <div class="relative grid lg:grid-cols-4 lg:gap-3">
+        {os.map((o, i) => (
+          <div class="relative flex flex-col items-center">
+            <span class:list={['absolute top-0 hidden h-px bg-white/25 lg:block', i === 0 ? 'left-1/2 -right-1.5' : i === os.length - 1 ? '-left-1.5 right-1/2' : '-left-1.5 -right-1.5']}></span>
+            <span class="h-6 w-px bg-white/25 lg:h-8"></span>
+            <div class="w-full rounded-[24px] border border-white/15 p-5">
+              <p class="label text-spark">{o.area}</p>
+              <ul class="mt-4 space-y-2 text-[14px]">
+                {o.agents.map((a) => <li class="flex items-center gap-2 text-paper/80"><span class="dot"></span>{a}</li>)}
+              </ul>
+            </div>
           </div>
         ))}
       </div>
