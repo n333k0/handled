@@ -39,22 +39,53 @@ const year = new Date().getFullYear();
       </div>
     </div>
 
-    <p id="footer-word" class="display mt-24 select-none whitespace-nowrap text-[clamp(64px,22vw,300px)] leading-[0.8] pb-[0.22em] text-white/[0.06]" aria-hidden="true"><span>{brand.name.toLowerCase()}.</span></p>
+    <div id="footer-word-box" class="mt-24 overflow-hidden" aria-hidden="true">
+      <p id="footer-word" class="display select-none whitespace-nowrap text-[clamp(64px,22vw,300px)] leading-[0.8] text-white/[0.06]"><span>{brand.name.toLowerCase()}.</span></p>
+    </div>
 
-    <div class="mt-6 flex flex-col justify-between gap-3 border-t border-white/10 pt-6 text-[13px] text-paper/40 sm:flex-row">
+    <div class="mt-8 flex flex-col justify-between gap-3 border-t border-white/10 pt-6 text-[13px] text-paper/40 sm:flex-row">
       <p>© {year} {brand.parent}. {brand.name} is a {brand.parent} product. Your systems, your data.</p>
     </div>
   </div>
 </footer>
 
 <script>
-  // Size the watermark so it spans the content width exactly.
+  // Fit the watermark to the content width by its *ink* (the visible letter shapes),
+  // not its text box, so the "h" and the "." sit flush with the content edges and the
+  // bottom of the letters sits right on the spacing above the line.
   const word = document.getElementById('footer-word');
-  if (word) {
+  const box = document.getElementById('footer-word-box');
+  if (word && box) {
+    const span = word.firstElementChild as HTMLElement;
     const fit = () => {
-      const span = word.firstElementChild as HTMLElement;
-      word.style.fontSize = '100px';
-      word.style.fontSize = `${(100 * word.clientWidth) / span.offsetWidth}px`;
+      const cs = getComputedStyle(word);
+      const S = 200; // measure at 200px
+      const c = document.createElement('canvas');
+      const ctx = c.getContext('2d');
+      if (!ctx) return;
+      const text = span.textContent ?? '';
+      const pad = S;
+      c.width = Math.ceil(S * text.length + pad * 2);
+      c.height = S * 2;
+      ctx.font = `${cs.fontWeight} ${S}px ${cs.fontFamily}`;
+      const ls = (parseFloat(cs.letterSpacing) / parseFloat(cs.fontSize)) * S || 0;
+      if ('letterSpacing' in ctx) (ctx as any).letterSpacing = `${ls}px`;
+      ctx.fillText(text, pad, S * 1.5);
+      const { data } = ctx.getImageData(0, 0, c.width, c.height);
+      let minX = c.width, maxX = 0, minY = c.height;
+      for (let y = 0; y < c.height; y++) for (let x = 0; x < c.width; x++) {
+        if (data[(y * c.width + x) * 4 + 3] > 8) { if (x < minX) minX = x; if (x > maxX) maxX = x; if (y < minY) minY = y; }
+      }
+      if (maxX <= minX) return;
+      const m = ctx.measureText(text);
+      const A = m.fontBoundingBoxAscent, D = m.fontBoundingBoxDescent;
+      const k = box.clientWidth / (maxX - minX + 1);
+      const inkAscent = S * 1.5 - minY;
+      word.style.fontSize = `${S * k}px`;
+      word.style.lineHeight = `${(A + D) * k}px`;
+      word.style.marginLeft = `${-(minX - pad) * k}px`;
+      word.style.marginTop = `${-(A - inkAscent) * k}px`;
+      word.style.marginBottom = `${-D * k}px`;
     };
     document.fonts.ready.then(fit);
     addEventListener('resize', fit);
