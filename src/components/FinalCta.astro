@@ -5,14 +5,14 @@ import { url } from '../lib/url';
 
 <section class="wrap pb-24">
   <div class="relative overflow-hidden rounded-[36px] bg-spark px-6 py-20 text-center text-ink sm:py-28">
-    <img class="absolute right-[-60px] top-[-40px] hidden size-[260px] rotate-6 rounded-[28px] object-cover md:block" src={url('/media/v3.jpg')} alt="" loading="lazy" />
-    <img class="absolute bottom-[-50px] left-[-40px] hidden size-[220px] -rotate-6 rounded-[28px] object-cover md:block" src={url('/media/v2.jpg')} alt="" loading="lazy" />
+    <img class="absolute right-[-36px] top-[-30px] size-[110px] rotate-6 rounded-[20px] object-cover sm:size-[170px] md:right-[-60px] md:top-[-40px] md:size-[260px] md:rounded-[28px]" src={url('/media/v3.jpg')} alt="" loading="lazy" />
+    <img class="absolute bottom-[-36px] left-[-30px] size-[100px] -rotate-6 rounded-[20px] object-cover sm:size-[150px] md:bottom-[-50px] md:left-[-40px] md:size-[220px] md:rounded-[28px]" src={url('/media/v2.jpg')} alt="" loading="lazy" />
     <div class="relative">
       <p class="label text-ink/60">Audit. Document. Automate.</p>
-      <h2 class="display mx-auto mt-6 max-w-[16ch] t-big">Consider it <span class="accent">handled.</span></h2>
-      <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <a href={url('/#book')} data-call class="btn-ink h-14 px-8 text-[16px]">Book a free 30-min call</a>
-        <a href={url('/#leak')} class="btn-line-ink h-14 px-8 text-[16px]">Calculate your leak</a>
+      <h2 class="display mx-auto mt-6 max-w-[16ch] t-big"><span class="block">Consider it</span> <span class="accent block">handled.</span></h2>
+      <div class="mx-auto mt-10 flex max-w-sm flex-col items-center justify-center gap-3 sm:max-w-none sm:flex-row">
+        <a href={url('/#book')} data-call class="btn-ink h-14 px-8 text-[16px] btn-wide">Book a free 30-min call</a>
+        <a href={url('/#leak')} class="btn-line-ink h-14 px-8 text-[16px] btn-wide">Calculate your leak</a>
       </div>
       <p class="label mt-8 text-ink/60">{spotsOpen} build slot{spotsOpen === 1 ? '' : 's'} open this month · audit credited to your build</p>
     </div>

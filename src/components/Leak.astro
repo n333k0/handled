@@ -12,7 +12,7 @@ import { calc } from '../data/site';
       <p class="mt-4 max-w-md text-[14px] text-paper/40">Estimate only: hours × people × cost, plus the time lost reconciling each tool that doesn’t talk to the others.</p>
     </div>
 
-    <div class="rounded-[8px] border border-white/10 bg-pine-800 p-6 sm:p-8" data-reveal>
+    <div class="rounded-[28px] border border-white/10 p-6 sm:p-10" data-reveal>
       {[
         ['team', 'People on the team', 1, 100, calc.team, ''],
         ['hours', 'Manual hours per person, per week', 1, 30, calc.hours, 'h'],
@@ -37,11 +37,11 @@ import { calc } from '../data/site';
         ))}
       </div>
 
-      <div class="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-[8px] bg-white/10">
-        <div class="bg-pine-900 p-5"><p class="label text-paper/45">Hours lost / year</p><p id="r-hours" class="mt-2 text-[24px] font-medium tracking-tight">—</p></div>
-        <div class="bg-pine-900 p-5"><p class="label text-paper/45">Tool sprawl</p><p id="r-tools" class="mt-2 text-[24px] font-medium tracking-tight">—</p></div>
+      <div class="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-t-[18px] bg-white/10">
+        <div class="bg-pine-950 p-5"><p class="label text-paper/45">Hours lost / year</p><p id="r-hours" class="mt-2 text-[24px] font-medium tracking-tight">—</p></div>
+        <div class="bg-pine-950 p-5"><p class="label text-paper/45">Tool sprawl</p><p id="r-tools" class="mt-2 text-[24px] font-medium tracking-tight">—</p></div>
       </div>
-      <div class="mt-px flex items-baseline justify-between rounded-b-[8px] bg-spark px-5 py-5 text-ink">
+      <div class="mt-px flex items-baseline justify-between rounded-b-[18px] bg-spark px-5 py-5 text-ink">
         <span class="text-[14px] font-semibold">Total annual leak</span>
         <span id="r-total" class="display text-[36px] sm:text-[44px]">—</span>
       </div>

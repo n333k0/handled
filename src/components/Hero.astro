@@ -19,23 +19,23 @@ const loop = [...tiles, ...tiles, ...tiles, ...tiles];
       {spotsOpen} of {capacity.total} build slots open this month
     </a>
 
-    <h1 class="display mx-auto mt-8 max-w-[15ch] t-hero">
-      Your busywork. <span class="accent text-spark">Handled.</span>
+    <h1 class="display mx-auto mt-6 max-w-[15ch] t-hero">
+      Your busywork. <span class="accent text-spark">Handled by AI.</span>
     </h1>
 
-    <p class="mx-auto mt-7 max-w-[640px] text-[18px] leading-relaxed text-paper/75 sm:text-[20px]">
+    <p class="mx-auto mt-5 max-w-[640px] text-[18px] leading-relaxed text-paper/75 sm:text-[20px]">
       Manual work quietly drains revenue you can’t see. We audit how your business runs, then install AI systems that do the work, inside the tools you already use.
     </p>
 
-    <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-      <a href={url('/#book')} data-call class="btn-primary h-14 px-8 text-[16px]">
+    <div class="mx-auto mt-7 flex max-w-sm flex-col items-center justify-center gap-3 sm:max-w-none sm:flex-row">
+      <a href={url('/#book')} data-call class="btn-primary h-14 px-8 text-[16px] btn-wide">
         Book a free 30-min call
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" /></svg>
       </a>
-      <a href={url('/#leak')} class="btn-ghost h-14 px-8 text-[16px]">Calculate your leak</a>
+      <a href={url('/#leak')} class="btn-ghost h-14 px-8 text-[16px] btn-wide">Calculate your leak</a>
     </div>
 
-    <ul class="label mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-paper/50">
+    <ul class="label mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-paper/50">
       <li>Audit first</li>
       <li aria-hidden="true">/</li>
       <li>Live in 3–4 weeks</li>
@@ -45,13 +45,13 @@ const loop = [...tiles, ...tiles, ...tiles, ...tiles];
       <li>Model-agnostic</li>
     </ul>
 
-    <a href={brand.parentUrl} class="mt-7 inline-flex items-center gap-2 text-white/90 transition hover:text-white" aria-label={`${brand.parentLine} ${brand.parent}`}>
+    <a href={brand.parentUrl} class="mt-5 inline-flex items-center gap-2 text-white/90 transition hover:text-white" aria-label={`${brand.parentLine} ${brand.parent}`}>
       <span class="font-sans text-[14px] leading-none text-paper/55">{brand.parentLine}</span>
       <ParentLogo class="h-[14px]" />
     </a>
   </div>
 
-  <div class="relative mt-16 sm:mt-20" aria-hidden="true">
+  <div class="relative mt-12 sm:mt-14" aria-hidden="true">
     <div class="flex w-max items-end gap-4 animate-marquee hover:[animation-play-state:paused]">
       {loop.map((t, i) => (
         <div class:list={['shrink-0 overflow-hidden rounded-[22px] bg-pine-800', t.w, t.h]}>
