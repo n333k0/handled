@@ -23,23 +23,23 @@ import { pains, steps, os, agents, stack, packages, deliverables, links, family 
   </div>
 </section>
 
-<!-- Process -->
-<section id="how" class="bg-violet py-24 text-paper sm:py-28">
+<!-- Process: accent block, dark type, flat cards -->
+<section id="how" class="bg-spark py-24 text-ink sm:py-28">
   <div class="wrap">
     <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end" data-reveal>
       <div>
-        <p class="label text-lilac">How it works</p>
-        <h2 class="display mt-4 t-h2">Your operation, <span class="accent text-lilac">rebuilt to run on AI.</span></h2>
+        <p class="label text-ink/60">How it works</p>
+        <h2 class="display mt-4 t-h2">Your operation, <span class="accent">rebuilt to run on AI.</span></h2>
       </div>
-      <p class="max-w-sm text-[16px] text-paper/75">Three steps. We never build before we understand how your business actually works.</p>
+      <p class="max-w-sm text-[16px] text-ink/70">Three steps. We never build before we understand how your business actually works.</p>
     </div>
-    <ol class="mt-12 grid gap-5 md:grid-cols-3">
+    <ol class="mt-12 grid gap-3 md:grid-cols-3" data-reveal>
       {steps.map((s) => (
-        <li class="flex flex-col rounded-[24px] border border-white/20 p-8" data-reveal>
-          <div class="flex items-center justify-between"><span class="font-mono text-[13px] text-lilac">{s.n}</span><span class="label text-paper/60">{s.time}</span></div>
+        <li class="flex flex-col rounded-[24px] bg-ink/[0.07] p-8">
+          <div class="flex items-center justify-between gap-4"><span class="font-mono text-[13px] text-ink/70">{s.n}</span><span class="label text-right text-ink/55">{s.time}</span></div>
           <h3 class="mt-8 text-[32px] font-medium tracking-tight">{s.title}</h3>
-          <p class="mt-1 text-[16px] text-paper/80">{s.sub}</p>
-          <p class="mt-4 text-[15px] leading-relaxed text-paper/75">{s.body}</p>
+          <p class="mt-1 text-[16px] text-ink/80">{s.sub}</p>
+          <p class="mt-4 text-[15px] leading-relaxed text-ink/70">{s.body}</p>
         </li>
       ))}
     </ol>
