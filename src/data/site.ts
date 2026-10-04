@@ -79,7 +79,7 @@ export const stack = ['HubSpot', 'Salesforce', 'Pipedrive', 'Google Workspace', 
 export const packages = [
   {
     name: 'Audit',
-    price: '$1,900',
+    price: '$1,500',
     unit: 'one-time',
     best: 'Find the leaks before you build anything.',
     points: ['Workflow cost audit', 'Prioritised AI roadmap', 'Build plan with costs and timeline', 'Delivered within 48h of the session', 'Credited 100% to your Build'],
@@ -117,7 +117,7 @@ export const faq: { group: string; items: { q: string; a: string }[] }[] = [
       { q: 'Where do we start?', a: 'With the audit. We map your workflows, tools, data, bottlenecks and costs before proposing a build.' },
       { q: 'Why pay for an audit if I already know what to automate?', a: 'Because the highest-ROI automation is often not the first one people guess. And the audit fee is credited in full to your build.' },
       { q: 'How fast can something go live?', a: 'Most businesses have a first workflow live 3–4 weeks after the audit and documentation.' },
-      { q: 'What does it cost?', a: 'Audit $1,900. Builds start at $9,500 per system, depending on depth, integrations and risk. You get a costed plan before you commit to anything.' },
+      { q: 'What does it cost?', a: 'Audit $1,500. Builds start at $9,500 per system, depending on depth, integrations and risk. You get a costed plan before you commit to anything.' },
     ],
   },
   {

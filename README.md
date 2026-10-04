@@ -21,6 +21,6 @@ npm run build
 Origin: adapts the MoP AI Systems Offer (mop-ai-systems-offer.vercel.app) and ideas from comando-ai.com. Hero videos in `public/media/` come from that offer (Higgsfield); replace with our own.
 
 ## Before launch
-- [ ] `links.calendly` (30-min leak call) and `links.checkout` (Stripe link for the $1,900 Audit)
+- [ ] `links.calendly` (30-min leak call) and `links.checkout` (Stripe link for the $1,500 Audit)
 - [ ] `brand.email`, `brand.parentUrl`
-- [ ] Confirm package prices (Audit $1,900, Build from $9,500, Operate $1,500/mo)
+- [ ] Confirm package prices (Audit $1,500, Build from $9,500, Operate $1,500/mo)
