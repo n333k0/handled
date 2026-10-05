@@ -6,7 +6,8 @@ const { class: className = '' } = Astro.props;
 ---
 
 <div class:list={['shader pointer-events-none', className]} aria-hidden="true">
-  <div class="mount absolute inset-0"></div>
+  <!-- screen blend keeps the canvas on the normal compositing path, so its darks always match the page (no dark block that vanishes on scroll) -->
+  <div class="mount absolute inset-0 mix-blend-screen"></div>
 </div>
 
 <style>
