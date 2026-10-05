@@ -3,43 +3,44 @@
 import { calc } from '../data/site';
 ---
 
-<section id="leak" class="border-t border-white/10 py-24 sm:py-28">
+<!-- Light block: white background, ink type; the accent is darkened slightly for contrast on white. -->
+<section id="leak" class="bg-white py-24 text-ink sm:py-28">
   <div class="wrap grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
     <div data-reveal>
-      <p class="label text-spark">The leak</p>
-      <h2 class="display mt-4 t-h2">How much is your business <span class="accent text-spark">leaking?</span></h2>
-      <p class="mt-6 max-w-md text-[18px] text-paper/65">Move the sliders. This is what manual work and disconnected tools cost you every year, before anyone notices.</p>
-      <p class="mt-4 max-w-md text-[14px] text-paper/40">Estimate only: hours × people × cost, plus the time lost reconciling each tool that doesn’t talk to the others.</p>
+      <p class="label text-spark-dim">The leak</p>
+      <h2 class="display mt-4 t-h2">How much is your business <span class="accent text-spark-dim">leaking?</span></h2>
+      <p class="mt-6 max-w-md text-[18px] text-ink/65">Move the sliders. This is what manual work and disconnected tools cost you every year, before anyone notices.</p>
+      <p class="mt-4 max-w-md text-[14px] text-ink/45">Estimate only: hours × people × cost, plus the time lost reconciling each tool that doesn’t talk to the others.</p>
     </div>
 
-    <div class="rounded-[28px] border border-white/10 p-6 sm:p-10" data-reveal>
+    <div class="rounded-[28px] bg-[#f4f4f6] p-6 sm:p-10" data-reveal>
       {[
         ['team', 'People on the team', 1, 100, calc.team, ''],
         ['hours', 'Manual hours per person, per week', 1, 30, calc.hours, 'h'],
         ['rate', 'Fully loaded cost per hour', 15, 150, calc.rate, '$'],
       ].map(([id, label, min, max, val, unit]) => (
         <label class="mb-6 block">
-          <span class="mb-2 flex items-center justify-between text-[14px] text-paper/70">
+          <span class="mb-2 flex items-center justify-between text-[14px] text-ink/70">
             {label}
-            <output id={`o-${id}`} class="font-mono text-[14px] text-paper">{unit === '$' ? `$${val}` : `${val}${unit}`}</output>
+            <output id={`o-${id}`} class="font-mono text-[14px] text-ink">{unit === '$' ? `$${val}` : `${val}${unit}`}</output>
           </span>
-          <input id={id as string} type="range" min={min} max={max} value={val} data-unit={unit} class="w-full accent-[#7b93ff]" />
+          <input id={id as string} type="range" min={min} max={max} value={val} data-unit={unit} class="w-full accent-[#5f78f0]" />
         </label>
       ))}
 
-      <p class="mb-3 text-[14px] text-paper/70">Tools you pay for that don’t talk to each other</p>
+      <p class="mb-3 text-[14px] text-ink/70">Tools you pay for that don’t talk to each other</p>
       <div class="flex flex-wrap gap-2">
         {calc.tools.map((t, i) => (
           <label class="cursor-pointer">
             <input type="checkbox" class="tool peer sr-only" checked={i < 4} />
-            <span class="block rounded-full border border-white/15 px-3 py-1.5 text-[13px] text-paper/60 transition peer-checked:border-spark peer-checked:bg-spark/15 peer-checked:text-paper">{t}</span>
+            <span class="block rounded-full border border-ink/15 bg-white px-3 py-1.5 text-[13px] text-ink/60 transition hover:border-ink/35 peer-checked:border-spark-dim peer-checked:bg-spark-dim peer-checked:text-white">{t}</span>
           </label>
         ))}
       </div>
 
-      <div class="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-t-[18px] bg-white/10">
-        <div class="bg-[#0c0c0c] p-5"><p class="label text-paper/45">Hours lost / year</p><p id="r-hours" class="mt-2 text-[24px] font-medium tracking-tight">—</p></div>
-        <div class="bg-[#0c0c0c] p-5"><p class="label text-paper/45">Tool sprawl</p><p id="r-tools" class="mt-2 text-[24px] font-medium tracking-tight">—</p></div>
+      <div class="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-t-[18px] bg-ink/10">
+        <div class="bg-white p-5"><p class="label text-ink/45">Hours lost / year</p><p id="r-hours" class="mt-2 text-[24px] font-medium tracking-tight">—</p></div>
+        <div class="bg-white p-5"><p class="label text-ink/45">Tool sprawl</p><p id="r-tools" class="mt-2 text-[24px] font-medium tracking-tight">—</p></div>
       </div>
       <div class="mt-px flex items-baseline justify-between rounded-b-[18px] bg-spark px-5 py-5 text-ink">
         <span class="text-[14px] font-semibold">Total annual leak</span>

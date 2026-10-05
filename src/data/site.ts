@@ -11,9 +11,9 @@ export const brand = {
 
 // RemotoLabs product family (cross-links on every site).
 export const family = [
-  { key: 'shipped', name: 'shipped.', line: 'Websites, fixed price', url: 'https://n333k0.github.io/shipped/' },
-  { key: 'queued', name: 'queued.', line: 'Design on subscription', url: 'https://n333k0.github.io/queued/' },
-  { key: 'handled', name: 'handled.', line: 'AI systems for your business', url: 'https://n333k0.github.io/handled/' },
+  { key: 'shipped', color: '#d8ff85', name: 'shipped.', line: 'Websites, fixed price', url: 'https://n333k0.github.io/shipped/' },
+  { key: 'queued', color: '#ff6a3d', name: 'queued.', line: 'Design on subscription', url: 'https://n333k0.github.io/queued/' },
+  { key: 'handled', color: '#7b93ff', name: 'handled.', line: 'AI systems for your business', url: 'https://n333k0.github.io/handled/' },
 ];
 
 // Integrations. Paste real links here; everything works with the fallbacks.
@@ -58,23 +58,48 @@ export const steps = [
   { n: '03', title: 'Automate', sub: 'Live AI workflows', body: 'We build the agents on that context, plug them into the tools you already pay for and roll them out with your team.', time: '3–4 weeks to first workflow' },
 ];
 
+// Each agent: [name, lucide icon]. Icons: https://lucide.dev/icons
 export const os = [
-  { area: 'Sales', agents: ['Lead scoring', 'Inbound qualification', 'Proposal writer', 'Deal follow-up', 'CRM hygiene', 'Call notes & next steps'] },
-  { area: 'Marketing', agents: ['Content engine', 'Social scheduler', 'Newsletter drafts', 'SEO briefs', 'Ad variations', 'Campaign reports'] },
-  { area: 'Finance', agents: ['Invoice chasing', 'Expense tracking', 'Reconciliation', 'Cash-flow forecast', 'Payroll prep', 'Monthly close pack'] },
-  { area: 'Operations', agents: ['Support triage', 'Doc processing', 'Onboarding checklists', 'Scheduling', 'Vendor follow-ups', 'Status updates'] },
-];
+  { area: 'Sales', icon: 'target', agents: [['Lead scoring', 'gauge'], ['Inbound qualification', 'inbox'], ['Proposal writer', 'file-text'], ['Deal follow-up', 'refresh-cw'], ['CRM hygiene', 'sparkles'], ['Call notes & next steps', 'phone-call']] },
+  { area: 'Marketing', icon: 'megaphone', agents: [['Content engine', 'pen-tool'], ['Social scheduler', 'calendar-days'], ['Newsletter drafts', 'mail'], ['SEO briefs', 'globe'], ['Ad variations', 'zap'], ['Campaign reports', 'chart-no-axes-column']] },
+  { area: 'Finance', icon: 'dollar-sign', agents: [['Invoice chasing', 'receipt'], ['Expense tracking', 'list'], ['Reconciliation', 'calculator'], ['Cash-flow forecast', 'trending-up'], ['Payroll prep', 'wallet'], ['Monthly close pack', 'file-check']] },
+  { area: 'Operations', icon: 'settings', agents: [['Support triage', 'message-square'], ['Doc processing', 'clipboard-list'], ['Onboarding checklists', 'user-plus'], ['Scheduling', 'clock'], ['Vendor follow-ups', 'truck'], ['Status updates', 'bell']] },
+] as { area: string; icon: string; agents: [string, string][] }[];
 
 export const agents = [
-  { name: 'Lead Intelligence', body: 'Reads calls and emails to score leads, track sentiment and hand reps the context to close.', area: 'Sales' },
-  { name: 'Proposal Agent', body: 'Drafts tailored proposals from call notes and past deals, so quotes go out the same day.', area: 'Sales' },
-  { name: 'Content Engine', body: 'Turns one idea into a week of on-brand posts, captions and emails.', area: 'Marketing' },
-  { name: 'Inbox Triage', body: 'Sorts and routes inbound messages and drafts replies, so nothing sits unanswered.', area: 'Operations' },
-  { name: 'Research Agent', body: 'Researches prospects, accounts or markets on demand and surfaces what matters.', area: 'Sales' },
-  { name: 'Document Agent', body: 'Contracts, forms, applications: extracted, checked, routed and filed.', area: 'Operations' },
+  { name: 'Lead Intelligence', icon: 'users', body: 'Reads calls and emails to score leads, track sentiment and hand reps the context to close.', area: 'Sales' },
+  { name: 'Proposal Agent', icon: 'file-text', body: 'Drafts tailored proposals from call notes and past deals, so quotes go out the same day.', area: 'Sales' },
+  { name: 'Content Engine', icon: 'pen-tool', body: 'Turns one idea into a week of on-brand posts, captions and emails.', area: 'Marketing' },
+  { name: 'Inbox Triage', icon: 'message-square', body: 'Sorts and routes inbound messages and drafts replies, so nothing sits unanswered.', area: 'Operations' },
+  { name: 'Research Agent', icon: 'search', body: 'Researches prospects, accounts or markets on demand and surfaces what matters.', area: 'Sales' },
+  { name: 'Document Agent', icon: 'clipboard-list', body: 'Contracts, forms, applications: extracted, checked, routed and filed.', area: 'Operations' },
 ];
 
-export const stack = ['HubSpot', 'Salesforce', 'Pipedrive', 'Google Workspace', 'Microsoft 365', 'Slack', 'WhatsApp', 'Notion', 'Airtable', 'Monday', 'ClickUp', 'QuickBooks', 'Xero', 'Stripe', 'Shopify', 'Zendesk', 'Intercom', 'Calendly', 'Typeform', 'Zapier', 'Make', 'n8n'];
+// Logos live in public/stack/<logo>.png.
+export const stack = [
+  { name: 'HubSpot', logo: 'hubspot' },
+  { name: 'Salesforce', logo: 'salesforce' },
+  { name: 'Pipedrive', logo: 'pipedrive' },
+  { name: 'Google Workspace', logo: 'google-workspace' },
+  { name: 'Microsoft 365', logo: 'microsoft-365' },
+  { name: 'Slack', logo: 'slack' },
+  { name: 'WhatsApp', logo: 'whatsapp' },
+  { name: 'Notion', logo: 'notion' },
+  { name: 'Airtable', logo: 'airtable' },
+  { name: 'Monday', logo: 'monday' },
+  { name: 'ClickUp', logo: 'clickup' },
+  { name: 'QuickBooks', logo: 'quickbooks' },
+  { name: 'Xero', logo: 'xero' },
+  { name: 'Stripe', logo: 'stripe' },
+  { name: 'Shopify', logo: 'shopify' },
+  { name: 'Zendesk', logo: 'zendesk' },
+  { name: 'Intercom', logo: 'intercom' },
+  { name: 'Calendly', logo: 'calendly' },
+  { name: 'Typeform', logo: 'typeform' },
+  { name: 'Zapier', logo: 'zapier' },
+  { name: 'Make', logo: 'make' },
+  { name: 'n8n', logo: 'n8n' },
+];
 
 export const packages = [
   {

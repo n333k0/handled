@@ -1,0 +1,16 @@
+---
+// Flat line icon from lucide-static (inlined SVG, inherits currentColor).
+const svgs = import.meta.glob('/node_modules/lucide-static/icons/*.svg', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+const { name, class: cls = 'size-5', stroke = 1.6 } = Astro.props;
+const raw = svgs[`/node_modules/lucide-static/icons/${name}.svg`];
+if (!raw) throw new Error(`Unknown icon: ${name}`);
+const svg = raw
+  .replace(/<!--[\s\S]*?-->/g, '')
+  // only touch the root <svg> tag (inner <rect>s need their own width/height)
+  .replace(/<svg[^>]*>/, (tag) => tag
+    .replace(/\s(width|height|class)="[^"]*"/g, '')
+    .replace(/stroke-width="[^"]*"/, `stroke-width="${stroke}"`)
+    .replace('<svg', `<svg aria-hidden="true" class="${cls}"`));
+---
+
+<Fragment set:html={svg} />
