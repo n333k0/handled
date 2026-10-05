@@ -9,12 +9,14 @@ interface Props {
   title?: string;
   description?: string;
   minimal?: boolean; // checkout uses a stripped-down header, no footer
+  overlay?: boolean; // header sits transparent over a full-bleed hero until scrolled
 }
 
 const {
   title = `${brand.name} by ${brand.parent} — AI systems for your business`,
   description = 'We audit how your business runs, then install AI systems that do the manual work inside the tools you already use. First workflow live in 3–4 weeks.',
   minimal = false,
+  overlay = false,
 } = Astro.props;
 ---
 
@@ -55,7 +57,7 @@ const {
   </head>
   <body>
     <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] btn-primary">Skip to content</a>
-    <Header minimal={minimal} />
+    <Header minimal={minimal} overlay={overlay} />
     <main id="main">
       <slot />
     </main>
@@ -76,7 +78,7 @@ const {
       // Header turns into the floating pill after a little scroll.
       const header = document.querySelector<HTMLElement>('.site-header');
       const mobile = matchMedia('(max-width: 767px)');
-      const onScroll = () => header?.toggleAttribute('data-scrolled', true) // handled: always the floating pill;
+      const onScroll = () => header?.toggleAttribute('data-scrolled', mobile.matches || scrollY > 24);
       mobile.addEventListener('change', onScroll);
       addEventListener('scroll', onScroll, { passive: true });
       onScroll();
