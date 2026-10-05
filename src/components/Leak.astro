@@ -33,7 +33,7 @@ import { calc } from '../data/site';
         {calc.tools.map((t, i) => (
           <label class="cursor-pointer">
             <input type="checkbox" class="tool peer sr-only" checked={i < 4} />
-            <span class="block rounded-full border border-ink/15 bg-white px-3 py-1.5 text-[13px] text-ink/60 transition hover:border-ink/35 peer-checked:border-spark-dim peer-checked:bg-spark-dim peer-checked:text-white">{t}</span>
+            <span class="block rounded-full border border-ink/15 bg-white px-3 py-1.5 text-[13px] text-ink/60 transition hover:border-ink/35 peer-checked:border-spark peer-checked:bg-spark peer-checked:text-ink">{t}</span>
           </label>
         ))}
       </div>
