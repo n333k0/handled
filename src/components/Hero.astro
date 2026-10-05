@@ -44,6 +44,26 @@ import { brand, spotsOpen, capacity } from '../data/site';
       <span class="font-sans text-[14px] leading-none text-paper/55">{brand.parentLine}</span>
       <ParentLogo class="h-[14px]" />
     </a>
+
+    <!-- scroll cue: mouse outline with a dot that glides down -->
+    <a href={url('/#leak')} class="scroll-cue group mx-auto mt-10 flex w-fit flex-col items-center gap-2 text-paper/45 transition-colors hover:text-paper" aria-label="Scroll to the leak calculator">
+      <span class="relative block h-[34px] w-[20px] rounded-full border border-white/25 transition-colors group-hover:border-spark">
+        <span class="scroll-dot absolute left-1/2 top-[7px] size-[4px] -translate-x-1/2 rounded-full bg-spark"></span>
+      </span>
+      <span class="label text-[10px]">Scroll</span>
+    </a>
   </div>
 
 </section>
+
+<style>
+  .scroll-dot { animation: scroll-dot 2s cubic-bezier(.65, 0, .35, 1) infinite; }
+  @keyframes scroll-dot {
+    0% { transform: translate(-50%, 0); opacity: 0; }
+    20% { opacity: 1; }
+    65% { transform: translate(-50%, 13px); opacity: 0; }
+    100% { transform: translate(-50%, 13px); opacity: 0; }
+  }
+  .scroll-cue:hover .scroll-dot { animation-duration: 1.2s; }
+  @media (prefers-reduced-motion: reduce) { .scroll-dot { animation: none; } }
+</style>
