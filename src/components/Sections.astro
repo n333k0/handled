@@ -112,6 +112,7 @@ const curves = os.map((_, i) => { const x = 50 + i * 100; return `M200 0 C200 46
   .pain.on { background: var(--color-spark); border-color: transparent; color: var(--color-ink); }
   .pain.on .pain-n { color: var(--color-ink); }
   .pain.on .pain-b { color: color-mix(in oklab, var(--color-ink) 75%, transparent); }
+  .pain.on .pain-l { color: color-mix(in oklab, var(--color-ink) 55%, transparent); }
 
   /* Active area (cycles): accent-tinted cards, accent icons and live dots, animated connector. */
   .os-col[data-on] .os-area { background: color-mix(in oklab, var(--color-spark) 16%, transparent); }
@@ -171,13 +172,13 @@ const curves = os.map((_, i) => { const x = 50 + i * 100; return `M200 0 C200 46
       </div>
       <p class="max-w-sm text-[16px] text-paper/60">Each one replaces hours of manual work a week. Yours are built the same way: around your workflows.</p>
     </div>
-    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="scroll-light mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {agents.map((a) => (
-        <article class="rounded-[24px] border border-white/10 p-8 text-center" data-reveal>
-          <span class="mx-auto grid size-14 place-items-center rounded-2xl bg-spark/12 text-spark"><Icon name={a.icon} class="size-6" /></span>
-          <p class="label mt-6 text-paper/40">{a.area}</p>
+        <article class="pain rounded-[24px] border border-white/10 p-8 text-center transition-colors duration-500" data-reveal>
+          <Icon name={a.icon} class="pain-n mx-auto block size-14 text-spark transition-colors duration-500" />
+          <p class="pain-l label mt-6 text-paper/40 transition-colors duration-500">{a.area}</p>
           <h3 class="mt-2 text-[22px] font-medium tracking-tight">{a.name}</h3>
-          <p class="mx-auto mt-2 max-w-[34ch] text-[15px] leading-relaxed text-paper/60">{a.body}</p>
+          <p class="pain-b mx-auto mt-2 max-w-[34ch] text-[15px] leading-relaxed text-paper/60 transition-colors duration-500">{a.body}</p>
         </article>
       ))}
     </div>
