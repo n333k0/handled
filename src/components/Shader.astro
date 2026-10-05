@@ -32,7 +32,7 @@ const { class: className = '' } = Astro.props;
       mount = new ShaderMount(el, neuroNoiseFragmentShader, {
         u_colorFront: getShaderColorFromString('#a9b5ff'),
         u_colorMid: getShaderColorFromString('#4b34e6'),
-        u_colorBack: getShaderColorFromString('#0b0b0b'),
+        u_colorBack: getShaderColorFromString('#0b0b0b00'), // transparent: the page's own off-black shows through, so no tone jump on scroll
         u_brightness: 0.16,
         u_contrast: 0.75,
         u_fit: ShaderFitOptions.none,
