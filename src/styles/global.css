@@ -14,6 +14,7 @@
 }
 
 @theme {
+  --color-black: #0b0b0b; /* off-black: every bg-black / from-black follows the page colour */
   --color-spark: #7b93ff;
   --color-spark-dim: #5f78f0;
   --color-paper: #f3f1ea;
@@ -59,11 +60,11 @@
 /* Style "Pitch" (handled default since 2026-10-04): black, white and the accent only.
    Every dark tone is true black; the 700+ steps exist only for hovers and lines. */
 [data-theme="pitch"] {
-  --tone-950: #000000;
-  --tone-900: #000000;
-  --tone-800: #000000;
-  --tone-700: #0d0d0d;
-  --tone-600: #1a1a1a;
+  --tone-950: #0b0b0b;
+  --tone-900: #0b0b0b;
+  --tone-800: #0b0b0b;
+  --tone-700: #141414;
+  --tone-600: #1f1f1f;
   --tone-500: #404040;
   --tone-ink: #050505;
   --tone-mist: #9a9a9a;
