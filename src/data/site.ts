@@ -12,7 +12,7 @@ export const brand = {
 // RemotoLabs product family (cross-links on every site).
 export const family = [
   { key: 'shipped', color: '#d8ff85', name: 'shipped.', line: 'Websites, fixed price', url: 'https://n333k0.github.io/shipped/' },
-  { key: 'queued', color: '#ff6a3d', name: 'queued.', line: 'Design on subscription', url: 'https://n333k0.github.io/queued/' },
+  { key: 'queued', color: '#eb4f2b', name: 'queued.', line: 'Design on subscription', url: 'https://n333k0.github.io/queued/' },
   { key: 'handled', color: '#7b93ff', name: 'handled.', line: 'AI systems for your business', url: 'https://n333k0.github.io/handled/' },
 ];
 
