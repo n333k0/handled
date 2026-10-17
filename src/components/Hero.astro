@@ -2,18 +2,13 @@
 import { url } from '../lib/url';
 import ParentLogo from './ParentLogo.astro';
 import Shader from './Shader.astro';
-import { brand, spotsOpen, capacity } from '../data/site';
+import { brand } from '../data/site';
 
 ---
 
 <section class="relative flex min-h-lvh items-center overflow-hidden pb-10 pt-[110px] sm:pt-[130px]">
   <Shader class="absolute inset-0" />
   <div class="wrap relative text-center">
-    <a href={url('/#book')} class="chip mx-auto border-white/15 bg-white/5 text-paper/80 hover:border-spark/60">
-      <span class="dot"></span>
-      {spotsOpen} of {capacity.total} build slots open this month
-    </a>
-
     <h1 class="display mx-auto mt-6 max-w-[15ch] t-hero">
       Your busywork. <span class="accent text-spark">Handled by AI.</span>
     </h1>
